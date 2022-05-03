@@ -1,0 +1,4 @@
+custom:
+  feign:
+    url:
+      deal: 'http://deal:8080/deal'

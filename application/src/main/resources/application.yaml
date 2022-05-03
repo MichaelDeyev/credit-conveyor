@@ -1,0 +1,4 @@
+custom:
+  feign:
+    url:
+      deal: 'http://localhost:8082/deal'
