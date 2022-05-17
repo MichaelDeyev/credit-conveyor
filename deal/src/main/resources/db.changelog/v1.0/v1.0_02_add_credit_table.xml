@@ -1,0 +1,51 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="v1.0.02_add_credit_sequence" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="credit_id_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="credit_id_seq" incrementBy="1" minValue="1"/>
+    </changeSet>
+
+
+    <changeSet id="v1.0.02_add_table_credit" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="credit"/>
+            </not>
+        </preConditions>
+        <createTable tableName="credit" remarks="Таблица кредитов">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="number"/>
+            <column name="term" type="INT"/>
+            <column name="monthly_payment" type="NUMBER"/>
+            <column name="rate" type="NUMBER"/>
+            <column name="psk" type="NUMBER"/>
+            <column name="is_insurance_enabled" type="BOOLEAN"/>
+            <column name="is_salary_client" type="BOOLEAN"/>
+            <column name="payment_schedule" type="JSONB"/>
+            <column name="application_id" type="BIGINT"/>
+            <column name="client_id" type="BIGINT"/>
+            <column name="credit_status" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="v1.0.02_add_credit_pk" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="credit"/>
+            <not>
+                <primaryKeyExists primaryKeyName="credit_pk"/>
+            </not>
+        </preConditions>
+        <addPrimaryKey columnNames="id" constraintName="credit_pk" tableName="credit"/>
+    </changeSet>
+
+</databaseChangeLog>
