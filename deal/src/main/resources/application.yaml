@@ -1,0 +1,35 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/credit-conveyor-db
+    username: postgres
+    password: 123
+  liquibase:
+    change-log: classpath:db.changelog/db.changelog-master.xml
+    url: jdbc:postgresql://localhost:5432/credit-conveyor-db
+    user: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+custom:
+  message:
+    topic:
+      finish-registration: 'conveyor-finish-registration'
+      create-documents: 'conveyor-create-documents'
+      send-documents: 'conveyor-send-documents'
+      send-ses: 'conveyor-send-ses'
+      credit-issued: 'conveyor-credit-issued'
+      application-denied: 'conveyor-application-denied'
+  feign:
+    url:
+      credit-conveyor: 'http://localhost:8080/conveyor'
