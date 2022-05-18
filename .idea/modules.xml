@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" />
       <module fileurl="file://$PROJECT_DIR$/conveyor/conveyor.iml" filepath="$PROJECT_DIR$/conveyor/conveyor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/credit-conveyor.iml" filepath="$PROJECT_DIR$/.idea/credit-conveyor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deal/deal.iml" filepath="$PROJECT_DIR$/deal/deal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dossier/dossier.iml" filepath="$PROJECT_DIR$/dossier/dossier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
     </modules>
   </component>
 </project>

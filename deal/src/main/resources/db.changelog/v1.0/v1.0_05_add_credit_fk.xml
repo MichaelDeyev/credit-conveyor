@@ -1,0 +1,39 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="v1.0.05_add_application_foreignKey_to_credit_table" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="credit"/>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="application_id_fk"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="application_id"
+                                 baseTableName="credit"
+                                 constraintName="application_id_fk"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id"
+                                 referencedTableName="application"/>
+    </changeSet>
+
+    <changeSet id="v1.0.05_add_client_foreignKey_to_credit_table" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="credit"/>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="client_id_fk"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="credit"
+                                 constraintName="client_id_fk"
+                                 onDelete="NO ACTION"
+                                 onUpdate="NO ACTION"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+    </changeSet>
+
+</databaseChangeLog>

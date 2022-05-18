@@ -1,0 +1,53 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="v1.0.03_add_client_sequence" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="client_id_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="client_id_seq" incrementBy="1" minValue="1"/>
+    </changeSet>
+
+    <changeSet id="v1.0.03_add_table_client" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="client"/>
+            </not>
+        </preConditions>
+        <createTable tableName="client" remarks="Таблица клиентов">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="middle_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="gender" type="VARCHAR(255)"/>
+            <column name="birth_date" type="date"/>
+            <column name="passport_info" type="JSONB"/>
+            <column name="marital_status" type="VARCHAR(50)"/>
+            <column name="dependent_amount" type="INT"/>
+            <column name="employment_dto" type="JSONB"/>
+            <column name="account" type="TEXT"/>
+            <column name="application_id" type="BIGINT"/>
+            <column name="credit_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="v1.0.03_add_client_pk" author="Mikhail_Deyev">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="client"/>
+            <not>
+                <primaryKeyExists primaryKeyName="client_pk"/>
+            </not>
+        </preConditions>
+        <addPrimaryKey columnNames="id" constraintName="client_pk" tableName="client"/>
+    </changeSet>
+
+</databaseChangeLog>
