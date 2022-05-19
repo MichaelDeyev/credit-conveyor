@@ -1,0 +1,80 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: credit.conveyor@gmail.com
+    password: iamacreditconveyor!!!1
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: dossier-consumer
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+custom:
+  message:
+    finish-registration:
+      subject: "Finish registration in credit-conveyor"
+      text: "Hello, your loan application №{applicationId} approved! \nNow you should finish registration by the following link: http://localhost:8880/swagger-ui/index.html#/application/finishRegistration"
+    create-document:
+      subject: "Create documents for your loan application"
+      text: "Hello, your loan application №{applicationId} passed all checks! \nNow you should send creating documents request by the following link: http://localhost:8880/swagger-ui/index.html#/document/createDocuments"
+    send-document:
+      subject: "Your loan documents"
+      text: "Hello, here it is your loan documents for application №{applicationId}! \nNow you should send signing documents request by the following link: http://localhost:8880/swagger-ui/index.html#/document/signDocuments"
+    send-ses:
+      subject: "Your Simple Electric Sign"
+      text: "Hello, here it is your Simple Electric Sign code {sesCode} for your application №{applicationId}. \nNow you should send this code to: http://localhost:8880/swagger-ui/index.html#/document/sendSesCode"
+    credit-issued:
+      subject: "Credit issued!"
+      text: "Hello, credit for your application №{applicationId} has already issued! \nMoney will transfer to your account soon. \nThanks!"
+    application-denied:
+      subject: "Your credit application denied."
+      text: "Hello, your application №{applicationId} denied."
+
+  document:
+    credit-contract: |
+      Credit contract {creditId} from {creditDate}
+      Client's full name: {clientFullName}
+      Client's passport: {clientPassport}
+      Credit Info: 
+        amount: {creditAmount}
+        term: {creditTerm}
+        monthly payment: {monthlyPayment}
+        rate: {rate}
+        psk: {psk}
+        services:
+          insurance: {isInsuranceEnabled}
+          salary client: {isSalaryClient}
+    credit-payment-schedule: |
+      Payment schedule for credit contract {creditId} from {applicationCreationDate}
+      Client's full name: {clientFullName}
+      Payment schedule:
+        {paymentSchedule}
+    credit-application: |
+      Credit application {applicationId} from {applicationCreationDate}
+      Client info:
+        full name: {clientFullName}
+        birthdate: {clientBirthdate}
+        gender: {clientGender}
+        passport: {clientPassport}
+        email: {clientEmail}
+        martial status: {clientMartialStatus}
+        dependent amount: {clientDependentAmount}
+        Employment:
+          employment status: {employmentStatus}
+          employer INN (if present): {employerINN}
+          salary: {employmentSalary}
+          employment position: {employmentPosition}
+          work experience (total): {employmentWorkExperienceTotal}
+          work experience (current): {employmentWorkExperienceCurrent}
+  feign:
+    url:
+      deal: 'http://localhost:8082/deal'
