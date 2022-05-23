@@ -1,0 +1,8 @@
+custom:
+  feign:
+    url:
+      application: 'http://localhost:8081/application'
+      deal: 'http://localhost:8082/deal'
+  swagger:
+    service:
+      url: 'http://localhost:8880'
