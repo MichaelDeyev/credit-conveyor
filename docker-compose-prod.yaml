@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+#  Gateway
+  gateway:
+    image: alxdv/credit-conveyor_gateway:1.0.0
+    container_name: gateway
+    ports:
+      - "8080:8080"
+  #  Application
+  application:
+    image: alxdv/credit-conveyor_application:1.0.0
+    container_name: application
+  conveyor:
+    image: alxdv/credit-conveyor_conveyor:1.0.0
+    container_name: conveyor
+  #  Deal
+  deal:
+    image: alxdv/credit-conveyor_deal:1.0.1
+    container_name: deal
+    depends_on:
+      - deal-db
+      - kafka
+    links:
+      - deal-db
+  #  Deal DB
+  deal-db:
+    image: 'postgres:13.1-alpine'
+    container_name: deal-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=credit-conveyor-db
+    restart: unless-stopped
+  #  Dossier
+  dossier:
+    image: alxdv/credit-conveyor_dossier:1.0.0
+    container_name: dossier
+    depends_on:
+      - kafka
+  #  Kafka
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: conveyor-zookeeper
+    expose:
+      - 2181
+  kafka:
+    image: wurstmeister/kafka
+    container_name: conveyor-kafka
+    expose:
+      - 9092
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1"
