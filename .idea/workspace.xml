@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" name="Changes" comment="small .idea adding">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-dev.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-prod.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/DealApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/DealApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/DossierApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/DossierApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/ru/deyev/credit/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/ru/deyev/credit/gateway/GatewayApplication.java" afterDir="false" />
+    </list>
+    <list id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="appl" />
+    <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment="">
+      <change afterPath="$PROJECT_DIR$/conveyor/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/controller/ConveyorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/exception/ScoringException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ConveyorFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/OfferService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ScoringService.java" afterDir="false" />
+    </list>
+    <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="">
+      <change afterPath="$PROJECT_DIR$/application/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/controller/ApplicationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/exception/PreScoringException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/feign/DealFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/service/ApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/validator/ApplicationValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DealController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DocumentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/TestMessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/exception/DealException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/feign/ConveyorFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Credit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/CreditStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/ApplicationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/CreditRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DealService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DocumentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DossierService.java" afterDir="false" />
+    </list>
+    <list id="29d408f6-25a8-4ce7-8575-a5e26b8716a2" name="dossier" comment="">
+      <change afterPath="$PROJECT_DIR$/dossier/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/feign/DealFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/kafka/KafkaConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/model/DocumentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/model/EmailMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/model/MessageFromKafka.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/model/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/sender/EmailSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/service/MessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/service/PrintedFormService.java" afterDir="false" />
+    </list>
+    <list id="14b3a556-4f87-4947-b0a2-6bd79f0a1ff1" name="gw" comment="add Dockerfile" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.18.1" />
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="29YsXdZO7BlAfAG3R6xS95B0lWq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/mdeev/Desktop/LearningCenter/my-cc/credit-conveyor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor" />
+      <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor\gateway\src\main\java\ru\deyev\credit\gateway" />
+      <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor\gateway" />
+      <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor\dossier" />
+      <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor\dossier\src\main\java\ru\deyev\credit\dossier" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.deyev.credit.application.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.docker-compose-dev.yaml: Compose Deployment">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.deyev.credit.application.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConveyorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="conveyor" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.deyev.credit.conveyor.ConveyorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DealApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="deal" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.deyev.credit.deal.DealApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DossierApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="dossier" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.deyev.credit.dossier.DossierApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" value="local" />
+      <module name="gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.deyev.credit.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="docker-compose-dev.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose-dev.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose-dev.yaml: Compose Deployment" />
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Spring Boot.ConveyorApplication" />
+      <item itemvalue="Spring Boot.DealApplication" />
+      <item itemvalue="Spring Boot.DossierApplication" />
+      <item itemvalue="Spring Boot.GatewayApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker-compose-dev.yaml: Compose Deployment" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" name="Changes" comment="" />
+      <changelist id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="" />
+      <changelist id="14b3a556-4f87-4947-b0a2-6bd79f0a1ff1" name="gw" comment="" />
+      <changelist id="e727f78e-6c12-425f-b484-808a050fcb30" name="c" comment="" />
+      <changelist id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="" />
+      <changelist id="29d408f6-25a8-4ce7-8575-a5e26b8716a2" name="dossier" comment="" />
+      <created>1653301394477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653301394477</updated>
+      <workItem from="1653301396210" duration="7511000" />
+    </task>
+    <task id="LOCAL-00001" summary="small env adding">
+      <created>1653302346958</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653302346958</updated>
+    </task>
+    <task id="LOCAL-00002" summary="small .idea adding">
+      <created>1653375027823</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375027823</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add ApplicationController">
+      <created>1653375261355</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375261355</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add application and deal feignClients">
+      <created>1653375305234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375305234</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add application and deal services">
+      <created>1653375330299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375330299</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add SwaggerConfig">
+      <created>1653375358919</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375358919</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add AdminService AdminController +DocService">
+      <created>1653375394021</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375394021</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add Dockerfile">
+      <created>1653375408371</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653375408371</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="small env adding" />
+    <MESSAGE value="small .idea adding" />
+    <MESSAGE value="add ApplicationController" />
+    <MESSAGE value="add application and deal feignClients" />
+    <MESSAGE value="add application and deal services" />
+    <MESSAGE value="add SwaggerConfig" />
+    <MESSAGE value="add AdminService AdminController +DocService" />
+    <MESSAGE value="add Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Dockerfile" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

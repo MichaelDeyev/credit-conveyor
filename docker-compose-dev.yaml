@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  #  Kafka
+  zookeeper:
+    image: wurstmeister/zookeeper
+    expose:
+      - 2181
+  kafka:
+    image: wurstmeister/kafka
+    expose:
+      - 9092
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1"
