@@ -4,33 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" name="Changes" comment="small .idea adding">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-dev.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-prod.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/DealApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/DealApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/DossierApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/DossierApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/ru/deyev/credit/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/ru/deyev/credit/gateway/GatewayApplication.java" afterDir="false" />
+    <list default="true" id="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" name="Changes" comment=".idea">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="appl" />
-    <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment="">
+    <list id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="add dockerfile" />
+    <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment="conveyor">
       <change afterPath="$PROJECT_DIR$/conveyor/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/controller/ConveyorController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/exception/ScoringException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ConveyorFacade.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/OfferService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ScoringService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c7bb2cb9-2b44-46aa-965c-d43cea49cc60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c7bb2cb9-2b44-46aa-965c-d43cea49cc60.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="">
-      <change afterPath="$PROJECT_DIR$/application/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/controller/ApplicationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/exception/PreScoringException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/feign/DealFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/service/ApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/ru/deyev/credit/application/validator/ApplicationValidator.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/deal/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/AdminController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DealController.java" afterDir="false" />
@@ -76,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="application/feature/finish_application" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -94,6 +82,24 @@
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="6" end1="19" start2="6" end2="9" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
+        <range start1="25" end1="25" start2="15" end2="17" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
+        <range start1="27" end1="33" start2="19" end2="19" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="78" end1="79" start2="64" end2="65" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="115" end1="136" start2="101" end2="123" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="137" end1="140" start2="124" end2="127" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="142" end1="143" start2="129" end2="130" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="154" end1="154" start2="141" end2="148" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="231" end1="232" start2="225" end2="228" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
+        <range start1="289" end1="290" start2="285" end2="328" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="300" end1="301" start2="338" end2="351" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+        <range start1="315" end1="316" start2="365" end2="372" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -113,34 +119,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/mdeev/Desktop/LearningCenter/my-cc/credit-conveyor",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mdeev/Desktop/LearningCenter/my-cc/credit-conveyor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d3bac8872e3333af29261fdfb76c3a34&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mdeev\Desktop\LearningCenter\my-cc\credit-conveyor" />
@@ -152,6 +159,13 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.deyev.credit.application.config" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Docker.docker-compose-dev.yaml: Compose Deployment">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -229,7 +243,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653301394477</updated>
-      <workItem from="1653301396210" duration="7511000" />
+      <workItem from="1653301396210" duration="9087000" />
+      <workItem from="1653406557963" duration="2475000" />
+      <workItem from="1653547389249" duration="811000" />
     </task>
     <task id="LOCAL-00001" summary="small env adding">
       <created>1653302346958</created>
@@ -287,7 +303,49 @@
       <option name="project" value="LOCAL" />
       <updated>1653375408371</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="docker-compose and enableFeign">
+      <created>1653389943020</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1653389943020</updated>
+    </task>
+    <task id="LOCAL-00010" summary=".idea">
+      <created>1653389956789</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653389956789</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Application controller">
+      <created>1653473994379</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1653473994379</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add DealFeignClient">
+      <created>1653474020081</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1653474020081</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add service+validator+exception">
+      <created>1653474057710</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1653474057710</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add dockerfile">
+      <created>1653474073117</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1653474073117</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +356,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -313,7 +383,13 @@
     <MESSAGE value="add SwaggerConfig" />
     <MESSAGE value="add AdminService AdminController +DocService" />
     <MESSAGE value="add Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Dockerfile" />
+    <MESSAGE value="docker-compose and enableFeign" />
+    <MESSAGE value=".idea" />
+    <MESSAGE value="Application controller" />
+    <MESSAGE value="add DealFeignClient" />
+    <MESSAGE value="add service+validator+exception" />
+    <MESSAGE value="add dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dockerfile" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -803,90 +803,76 @@ false Zulu
       <ObjectId>65681</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="3" parent="1" name="dealdb">
-      <ObjectId>65606</ObjectId>
+    <database id="3" parent="1" name="postgres">
+      <Comment>default administrative connection database</Comment>
+      <ObjectId>13442</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
     <database id="4" parent="1" name="ib">
       <ObjectId>16397</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="5" parent="1" name="managerdb">
-      <ObjectId>65553</ObjectId>
-      <OwnerName>postgres</OwnerName>
-    </database>
-    <database id="6" parent="1" name="postgres">
-      <Comment>default administrative connection database</Comment>
-      <ObjectId>13442</ObjectId>
-      <OwnerName>postgres</OwnerName>
-    </database>
-    <database id="7" parent="1" name="shop">
-      <ObjectId>41001</ObjectId>
-      <OwnerName>postgres</OwnerName>
-    </database>
-    <database id="8" parent="1" name="testktdb">
+    <database id="5" parent="1" name="testktdb">
       <ObjectId>24593</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="9" parent="1" name="tmpdb">
+    <database id="6" parent="1" name="shop">
+      <ObjectId>41001</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="7" parent="1" name="tmpdb">
       <ObjectId>49188</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="10" parent="1" name="ts">
+    <database id="8" parent="1" name="ts">
       <ObjectId>57361</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <role id="11" parent="1" name="issuecert">
+    <database id="9" parent="1" name="managerdb">
+      <ObjectId>65553</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="10" parent="1" name="dealdb">
+      <ObjectId>65606</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <role id="11" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+    </role>
+    <role id="12" parent="1" name="issuecert">
       <CanLogin>1</CanLogin>
       <CreateDb>1</CreateDb>
       <CreateRole>1</CreateRole>
       <ObjectId>16988</ObjectId>
       <SuperRole>1</SuperRole>
     </role>
-    <role id="12" parent="1" name="issuecert_ms">
+    <role id="13" parent="1" name="pg_read_server_files">
+      <ObjectId>4569</ObjectId>
+    </role>
+    <role id="14" parent="1" name="postgres">
+      <BypassRls>1</BypassRls>
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>10</ObjectId>
+      <Replication>1</Replication>
+      <SuperRole>1</SuperRole>
+    </role>
+    <role id="15" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
+    </role>
+    <role id="16" parent="1" name="issuecert_ms">
       <CanLogin>1</CanLogin>
       <CreateDb>1</CreateDb>
       <CreateRole>1</CreateRole>
       <ObjectId>16986</ObjectId>
       <SuperRole>1</SuperRole>
     </role>
-    <role id="13" parent="1" name="mdeev">
-      <CanLogin>1</CanLogin>
-      <CreateDb>1</CreateDb>
-      <CreateRole>1</CreateRole>
-      <ObjectId>40979</ObjectId>
-      <SuperRole>1</SuperRole>
-    </role>
-    <role id="14" parent="1" name="nsi_ms">
-      <CanLogin>1</CanLogin>
-      <CreateDb>1</CreateDb>
-      <CreateRole>1</CreateRole>
-      <ObjectId>32785</ObjectId>
-      <SuperRole>1</SuperRole>
-    </role>
-    <role id="15" parent="1" name="ntn_ms">
-      <CanLogin>1</CanLogin>
-      <CreateDb>1</CreateDb>
-      <CreateRole>1</CreateRole>
-      <ObjectId>24591</ObjectId>
-      <SuperRole>1</SuperRole>
-    </role>
-    <role id="16" parent="1" name="otp">
-      <CanLogin>1</CanLogin>
-      <CreateDb>1</CreateDb>
-      <CreateRole>1</CreateRole>
-      <ObjectId>16395</ObjectId>
-      <SuperRole>1</SuperRole>
-    </role>
-    <role id="17" parent="1" name="otp_ms">
-      <CanLogin>1</CanLogin>
-      <CreateDb>1</CreateDb>
-      <CreateRole>1</CreateRole>
-      <ObjectId>16396</ObjectId>
-      <SuperRole>1</SuperRole>
-    </role>
-    <role id="18" parent="1" name="pg_execute_server_program">
+    <role id="17" parent="1" name="pg_execute_server_program">
       <ObjectId>4571</ObjectId>
+    </role>
+    <role id="18" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
     </role>
     <role id="19" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
@@ -894,31 +880,45 @@ false Zulu
 3375
 3377</RoleGrants>
     </role>
-    <role id="20" parent="1" name="pg_read_all_settings">
-      <ObjectId>3374</ObjectId>
-    </role>
-    <role id="21" parent="1" name="pg_read_all_stats">
-      <ObjectId>3375</ObjectId>
-    </role>
-    <role id="22" parent="1" name="pg_read_server_files">
-      <ObjectId>4569</ObjectId>
-    </role>
-    <role id="23" parent="1" name="pg_signal_backend">
-      <ObjectId>4200</ObjectId>
-    </role>
-    <role id="24" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="25" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="26" parent="1" name="postgres">
-      <BypassRls>1</BypassRls>
+    <role id="20" parent="1" name="mdeev">
       <CanLogin>1</CanLogin>
       <CreateDb>1</CreateDb>
       <CreateRole>1</CreateRole>
-      <ObjectId>10</ObjectId>
-      <Replication>1</Replication>
+      <ObjectId>40979</ObjectId>
+      <SuperRole>1</SuperRole>
+    </role>
+    <role id="21" parent="1" name="otp">
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>16395</ObjectId>
+      <SuperRole>1</SuperRole>
+    </role>
+    <role id="22" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+    </role>
+    <role id="23" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+    </role>
+    <role id="24" parent="1" name="ntn_ms">
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>24591</ObjectId>
+      <SuperRole>1</SuperRole>
+    </role>
+    <role id="25" parent="1" name="nsi_ms">
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>32785</ObjectId>
+      <SuperRole>1</SuperRole>
+    </role>
+    <role id="26" parent="1" name="otp_ms">
+      <CanLogin>1</CanLogin>
+      <CreateDb>1</CreateDb>
+      <CreateRole>1</CreateRole>
+      <ObjectId>16396</ObjectId>
       <SuperRole>1</SuperRole>
     </role>
     <tablespace id="27" parent="1" name="pg_default">
