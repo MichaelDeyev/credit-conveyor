@@ -8,17 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="add dockerfile" />
-    <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment="conveyor">
-      <change afterPath="$PROJECT_DIR$/conveyor/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/controller/ConveyorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/exception/ScoringException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ConveyorFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/OfferService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conveyor/src/main/java/ru/deyev/credit/conveyor/service/ScoringService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c7bb2cb9-2b44-46aa-965c-d43cea49cc60.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c7bb2cb9-2b44-46aa-965c-d43cea49cc60.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
-    <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="">
+    <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment=".idea" />
+    <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="deal">
       <change afterPath="$PROJECT_DIR$/deal/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/AdminController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DealController.java" afterDir="false" />
@@ -64,7 +55,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="application/feature/finish_application" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,34 +63,18 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
         <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="6" end1="19" start2="6" end2="9" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
-        <range start1="25" end1="25" start2="15" end2="17" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
-        <range start1="27" end1="33" start2="19" end2="19" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="78" end1="79" start2="64" end2="65" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="115" end1="136" start2="101" end2="123" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="137" end1="140" start2="124" end2="127" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="142" end1="143" start2="129" end2="130" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="154" end1="154" start2="141" end2="148" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="231" end1="232" start2="225" end2="228" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
-        <range start1="289" end1="290" start2="285" end2="328" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="300" end1="301" start2="338" end2="351" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-        <range start1="315" end1="316" start2="365" end2="372" changelist="e727f78e-6c12-425f-b484-808a050fcb30" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -167,7 +142,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose-dev.yaml: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.DealApplication">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" value="local" />
       <module name="application" />
@@ -227,6 +202,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose-dev.yaml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-dev.yaml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +221,7 @@
       <updated>1653301394477</updated>
       <workItem from="1653301396210" duration="9087000" />
       <workItem from="1653406557963" duration="2475000" />
-      <workItem from="1653547389249" duration="811000" />
+      <workItem from="1653547389249" duration="7917000" />
     </task>
     <task id="LOCAL-00001" summary="small env adding">
       <created>1653302346958</created>
@@ -345,7 +321,42 @@
       <option name="project" value="LOCAL" />
       <updated>1653474073117</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add exception">
+      <created>1653548402017</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653548402017</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add controller">
+      <created>1653548425092</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653548425092</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add services and facade">
+      <created>1653548443279</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653548443279</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add Dockerfile">
+      <created>1653548454957</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653548454957</updated>
+    </task>
+    <task id="LOCAL-00019" summary=".idea">
+      <created>1653548470382</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1653548470382</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,14 +393,17 @@
     <MESSAGE value="add application and deal services" />
     <MESSAGE value="add SwaggerConfig" />
     <MESSAGE value="add AdminService AdminController +DocService" />
-    <MESSAGE value="add Dockerfile" />
     <MESSAGE value="docker-compose and enableFeign" />
-    <MESSAGE value=".idea" />
     <MESSAGE value="Application controller" />
     <MESSAGE value="add DealFeignClient" />
     <MESSAGE value="add service+validator+exception" />
     <MESSAGE value="add dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dockerfile" />
+    <MESSAGE value="add exception" />
+    <MESSAGE value="add controller" />
+    <MESSAGE value="add services and facade" />
+    <MESSAGE value="add Dockerfile" />
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
