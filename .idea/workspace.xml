@@ -9,26 +9,7 @@
     </list>
     <list id="02bcbd60-ed3f-4a3b-84ab-b457e49ac8df" name="appl" comment="add dockerfile" />
     <list id="e727f78e-6c12-425f-b484-808a050fcb30" name="conveyor" comment=".idea" />
-    <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment="deal">
-      <change afterPath="$PROJECT_DIR$/deal/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DealController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/DocumentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/controller/TestMessageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/exception/DealException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/feign/ConveyorFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/Credit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/model/CreditStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/ApplicationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/ClientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/repository/CreditRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DealService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DocumentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deal/src/main/java/ru/deyev/credit/deal/service/DossierService.java" afterDir="false" />
-    </list>
+    <list id="d728a755-52e5-490c-9176-fd98994912c8" name="deal" comment=".idea" />
     <list id="29d408f6-25a8-4ce7-8575-a5e26b8716a2" name="dossier" comment="">
       <change afterPath="$PROJECT_DIR$/dossier/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/controller/TestController.java" afterDir="false" />
@@ -41,6 +22,7 @@
       <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/sender/EmailSender.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/service/MessageService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/dossier/src/main/java/ru/deyev/credit/dossier/service/PrintedFormService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="14b3a556-4f87-4947-b0a2-6bd79f0a1ff1" name="gw" comment="add Dockerfile" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="deal/feature/finish_deal" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,6 +57,20 @@
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/.idea/workspace.xml">
+      <ranges>
+        <range start1="11" end1="31" start2="11" end2="12" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="43" end1="43" start2="24" end2="25" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="57" end1="58" start2="39" end2="40" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="77" end1="77" start2="59" end2="73" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="223" end1="224" start2="219" end2="220" changelist="9b6325ab-8958-45a6-8c13-1f7aaef1aa6a" />
+        <range start1="358" end1="359" start2="354" end2="418" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="375" end1="376" start2="434" end2="435" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+        <range start1="403" end1="403" start2="462" end2="469" changelist="29d408f6-25a8-4ce7-8575-a5e26b8716a2" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -356,7 +352,70 @@
       <option name="project" value="LOCAL" />
       <updated>1653548470382</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Application, Client and Credit entity">
+      <created>1653643212984</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643212984</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Application, Client and Credit DAO">
+      <created>1653643229288</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643229288</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Feign Client">
+      <created>1653643255434</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643255434</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Credit status+ exception">
+      <created>1653643309931</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643309931</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add services">
+      <created>1653643332501</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643332501</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add AdminService">
+      <created>1653643362205</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643362205</updated>
+    </task>
+    <task id="LOCAL-00026" summary="add controllers">
+      <created>1653643401163</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643401163</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add Dockerfile">
+      <created>1653643411143</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643411143</updated>
+    </task>
+    <task id="LOCAL-00028" summary=".idea">
+      <created>1653643420958</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1653643420958</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +432,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="dossier/feature/finish_dossier" />
                       </list>
                     </value>
                   </entry>
@@ -401,6 +460,13 @@
     <MESSAGE value="add exception" />
     <MESSAGE value="add controller" />
     <MESSAGE value="add services and facade" />
+    <MESSAGE value="Application, Client and Credit entity" />
+    <MESSAGE value="Application, Client and Credit DAO" />
+    <MESSAGE value="Feign Client" />
+    <MESSAGE value="Credit status+ exception" />
+    <MESSAGE value="add services" />
+    <MESSAGE value="add AdminService" />
+    <MESSAGE value="add controllers" />
     <MESSAGE value="add Dockerfile" />
     <MESSAGE value=".idea" />
     <option name="LAST_COMMIT_MESSAGE" value=".idea" />
