@@ -33,3 +33,9 @@ custom:
   feign:
     url:
       credit-conveyor: 'http://localhost:8080/conveyor'
+
+logging:
+  level:
+    org:
+      zalando:
+        logbook: TRACE
