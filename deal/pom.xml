@@ -80,6 +80,11 @@
             <artifactId>hibernate-types-52</artifactId>
             <version>2.15.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-spring-boot-starter</artifactId>
+            <version>2.14.0</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
