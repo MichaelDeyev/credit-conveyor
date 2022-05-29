@@ -2,3 +2,9 @@ custom:
   feign:
     url:
       deal: 'http://localhost:8082/deal'
+
+logging:
+  level:
+    org:
+      zalando:
+        logbook: TRACE
