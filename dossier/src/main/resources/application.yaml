@@ -1,13 +1,15 @@
 spring:
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: credit.conveyor@gmail.com
-    password: iamacreditconveyor!!!1
+    host: smtp.yandex.ru
+    port: 465
+    username: credit.conveyor@yandex.ru #password for yandex account iamacreditconveyor!!!1
+    password: ehdoarpncmkukrks
     properties:
       mail:
         smtp:
           auth: true
+          ssl:
+            enable: true
           starttls:
             enable: true
 

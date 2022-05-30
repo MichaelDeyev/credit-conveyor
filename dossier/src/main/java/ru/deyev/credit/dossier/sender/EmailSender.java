@@ -22,7 +22,7 @@ public class EmailSender {
 
     public void sendMessage(String address, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@conveyor.com");
+        message.setFrom("credit.conveyor@yandex.ru");
         message.setTo(address);
         message.setSubject(subject);
         message.setText(text);
@@ -33,7 +33,7 @@ public class EmailSender {
 
     public void sendMessage(EmailMessage emailMessage) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@conveyor.com");
+        message.setFrom("credit.conveyor@yandex.ru");
         message.setTo(emailMessage.getAddress());
         message.setSubject(emailMessage.getSubject());
         message.setText(emailMessage.getText());
@@ -56,7 +56,7 @@ public class EmailSender {
 
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
-            helper.setFrom("noreply@conveyor.com");
+            helper.setFrom("credit.conveyor@yandex.ru");
             helper.setTo(address);
             helper.setSubject(subject);
             helper.setText(text);
