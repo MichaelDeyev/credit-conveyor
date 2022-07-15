@@ -3,7 +3,7 @@ spring:
     host: smtp.yandex.ru
     port: 465
     username: credit.conveyor@yandex.ru #password for yandex account iamacreditconveyor!!!1
-    password: ehdoarpncmkukrks
+    password: yvijghaepzswcihw
     properties:
       mail:
         smtp:
