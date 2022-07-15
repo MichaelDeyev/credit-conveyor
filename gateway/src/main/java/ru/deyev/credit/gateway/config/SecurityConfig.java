@@ -11,13 +11,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").permitAll();
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/**").permitAll();
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/v1/**").authenticated().and().httpBasic();
     }
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")
+                .allowedOrigins("http://localhost:8880", "http://localhost:8080", "http://localhost:3000")
                 .allowedMethods("*");
     }
 }
