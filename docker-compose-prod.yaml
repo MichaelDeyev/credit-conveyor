@@ -3,7 +3,7 @@ version: '3.8'
 services:
   #  Gateway
   gateway:
-    image: alxdv/credit-conveyor_gateway:1.0.3
+    image: alxdv/credit-conveyor_gateway:1.0.4
     container_name: gateway
     ports:
       - "8080:8080"
@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
   #  Dossier
   dossier:
-    image: alxdv/credit-conveyor_dossier:1.0.3
+    image: alxdv/credit-conveyor_dossier:1.0.4
     container_name: dossier
     depends_on:
       - kafka
