@@ -27,8 +27,7 @@ public class OfferService {
                                      Boolean isSalaryClient,
                                      LoanApplicationRequestDTO request) {
 
-        BigDecimal totalAmount = scoringService.evaluateTotalAmountByServices(request.getAmount(),
-                isInsuranceEnabled);
+        BigDecimal totalAmount = scoringService.evaluateTotalAmountByServices(request.getAmount(), isInsuranceEnabled);
 
         BigDecimal rate = scoringService.calculateRate(isInsuranceEnabled, isSalaryClient);
 
