@@ -478,7 +478,7 @@ components:
           description: Last name
         middleName:
           type: string
-          example: Ivanonovich
+          example: Ivanovich
           description: Middle name (if present).
         email:
           type: string
@@ -631,7 +631,7 @@ components:
           description: Client's last name
         middleName:
           type: string
-          example: Ivanonovich
+          example: Ivanovich
           pattern: '[A-Za-z]{2,30}'
           description: Client's middle name (if present).
         gender:

@@ -9,13 +9,13 @@ custom:
   message:
     finish-registration:
       subject: "Finish registration in credit-conveyor"
-      text: "Hello, your loan application №{applicationId} approved! \nNow you should finish registration by the following link: http://localhost:8080/swagger-ui/index.html#/application/finishRegistration"
+      text: "Hello, your loan application №{applicationId} approved! \nNow you should finish registration by the following link: http://localhost:3000/finish-registration/{applicationId}"
     create-document:
       subject: "Create documents for your loan application"
-      text: "Hello, your loan application №{applicationId} passed all checks! \nNow you should send creating documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/createDocuments"
+      text: "Hello, your loan application №{applicationId} passed all checks! \nNow you should send creating documents request by the following link: http://localhost:3000/create-documents/{applicationId}"
     send-document:
       subject: "Your loan documents"
-      text: "Hello, here it is your loan documents for application №{applicationId}! \nNow you should send signing documents request by the following link: http://localhost:8080/swagger-ui/index.html#/document/signDocuments"
+      text: "Hello, here it is your loan documents for application №{applicationId}! \nNow you should send signing documents request by the following link: http://localhost:3000/sign-documents/{applicationId}"
     send-ses:
       subject: "Your Simple Electric Sign"
-      text: "Hello, here it is your Simple Electric Sign code {sesCode} for your application №{applicationId}. \nNow you should send this code to: http://localhost:8080/swagger-ui/index.html#/document/sendSesCode"
+      text: "Hello, here it is your Simple Electric Sign code {sesCode} for your application №{applicationId}. \nNow you should send this code to: http://localhost:3000/ses/{applicationId}"

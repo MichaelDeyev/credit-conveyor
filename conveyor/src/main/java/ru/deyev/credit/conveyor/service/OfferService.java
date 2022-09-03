@@ -1,5 +1,6 @@
 package ru.deyev.credit.conveyor.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.conveyor.model.LoanApplicationRequestDTO;
 import ru.deyev.credit.conveyor.model.LoanOfferDTO;
@@ -8,13 +9,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class OfferService {
 
     private final ScoringService scoringService;
-
-    public OfferService(ScoringService scoringService) {
-        this.scoringService = scoringService;
-    }
 
     public List<LoanOfferDTO> generateOffers(LoanApplicationRequestDTO request) {
         return List.of(
@@ -29,8 +27,7 @@ public class OfferService {
                                      Boolean isSalaryClient,
                                      LoanApplicationRequestDTO request) {
 
-        BigDecimal totalAmount = scoringService.evaluateTotalAmountByServices(request.getAmount(),
-                isInsuranceEnabled);
+        BigDecimal totalAmount = scoringService.evaluateTotalAmountByServices(request.getAmount(), isInsuranceEnabled);
 
         BigDecimal rate = scoringService.calculateRate(isInsuranceEnabled, isSalaryClient);
 
