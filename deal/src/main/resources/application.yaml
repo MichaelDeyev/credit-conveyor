@@ -39,3 +39,27 @@ logging:
     org:
       zalando:
         logbook: TRACE
+logbook:
+  exclude:
+    - "/swagger-ui/**"
+    - "/actuator/**"
+
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoint:
+    loggers:
+      enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
