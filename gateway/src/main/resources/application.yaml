@@ -1,3 +1,6 @@
+spring:
+  main:
+    allow-circular-references: true
 custom:
   feign:
     url:
