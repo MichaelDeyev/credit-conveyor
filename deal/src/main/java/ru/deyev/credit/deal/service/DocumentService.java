@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.deal.exception.DealException;
+import ru.deyev.credit.deal.metric.MeasureService;
 import ru.deyev.credit.deal.model.Application;
 import ru.deyev.credit.deal.model.ApplicationStatus;
 import ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO;
@@ -29,6 +30,8 @@ public class DocumentService {
     private DossierService dossierService;
     private ApplicationRepository applicationRepository;
     private CreditRepository creditRepository;
+
+    private MeasureService measureService;
 
     public void createDocumentsRequest(Long applicationId) {
 
@@ -68,6 +71,8 @@ public class DocumentService {
         applicationRepository.save(application
                 .setStatus(PREPARE_DOCUMENTS)
                 .setStatusHistory(statusHistory));
+
+        measureService.incrementStatusCounter(PREPARE_DOCUMENTS);
 
         log.info("Sending send document request for application {}, to email {}",
                 application, application.getClient().getEmail());
@@ -127,6 +132,8 @@ public class DocumentService {
                 .setStatusHistory(statusHistory)
                 .setSignDate(LocalDate.now()));
 
+        measureService.incrementStatusCounter(ApplicationStatus.DOCUMENT_SIGNED);
+
         issueCredit(applicationId);
     }
 
@@ -154,6 +161,9 @@ public class DocumentService {
         applicationRepository.save(application
                 .setStatus(ApplicationStatus.CREDIT_ISSUED)
                 .setStatusHistory(statusHistory));
+
+        measureService.incrementStatusCounter(ApplicationStatus.CREDIT_ISSUED);
+
         creditRepository.save(credit.setCreditStatus(CreditStatus.ISSUED));
 
         dossierService.sendMessage(new EmailMessage()
