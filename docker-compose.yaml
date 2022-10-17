@@ -4,16 +4,20 @@ services:
 #  Gateway
   gateway:
     build: gateway
+    container_name: cc-gateway
     ports:
       - "8080:8080"
   #  Application
   application:
     build: application
+    container_name: cc-application
   conveyor:
     build: conveyor
+    container_name: cc-conveyor
   #  Deal
   deal:
     build: deal
+    container_name: cc-deal
     ports:
       - "8081:8081"
     depends_on:
@@ -24,7 +28,7 @@ services:
   #  Deal DB
   deal-db:
     image: 'postgres:13.1-alpine'
-    #    container_name: deal-db
+    container_name: cc-deal-db
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123
@@ -33,15 +37,25 @@ services:
   #  Dossier
   dossier:
     build: dossier
+    container_name: cc-dossier
     depends_on:
       - kafka
+#    Audit
+  audit:
+    build: audit
+    container_name: cc-audit
+    depends_on:
+      - kafka
+      - audit-db
   #  Kafka
   zookeeper:
     image: wurstmeister/zookeeper
+    container_name: cc-zookeeper
     expose:
       - 2181
   kafka:
     image: wurstmeister/kafka
+    container_name: cc-kafka
     expose:
       - 9092
     ports:
@@ -51,12 +65,12 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1"
+      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1,audit-action:1:1"
   prometheus:
     image: prom/prometheus
     ports:
       - '9090:9090'
-    container_name: prometheus
+    container_name: cc-prometheus
     volumes:
       - ./deal/src/main/resources/prometheus.yaml:/etc/prometheus/prometheus.yml
       - ./prometheus:/prometheus
@@ -64,8 +78,20 @@ services:
       - deal
   grafana:
     image: grafana/grafana
-    container_name: 'grafana'
+    container_name: cc-grafana
     ports:
       - '3000:3000'
     depends_on:
       - prometheus
+  audit-db:
+    image: redis:6.2-alpine
+    container_name: cc-audit-db
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - audit:/data
+volumes:
+  audit:
+    driver: local

@@ -3,6 +3,7 @@ package ru.deyev.credit.deal.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.deyev.credit.deal.audit.AuditAction;
 import ru.deyev.credit.deal.exception.DealException;
 import ru.deyev.credit.deal.metric.MeasureService;
 import ru.deyev.credit.deal.model.Application;
@@ -52,6 +53,7 @@ public class DocumentService {
                 .address(application.getClient().getEmail()));
     }
 
+    @AuditAction
     public void sendDocuments(Long applicationId) {
         Application application = applicationRepository.findById(applicationId)
                 .orElseThrow(() -> new EntityNotFoundException("Application with id " + applicationId + " not found."));
@@ -83,6 +85,7 @@ public class DocumentService {
                 .address(application.getClient().getEmail()));
     }
 
+    @AuditAction
     public void signDocuments(Long applicationId) {
         Application application = applicationRepository.findById(applicationId)
                 .orElseThrow(() -> new EntityNotFoundException("Application with id " + applicationId + " not found."));
@@ -107,6 +110,7 @@ public class DocumentService {
 
     }
 
+    @AuditAction
     public void verifyCode(Long applicationId, Integer sesCode) {
         Application application = applicationRepository.findById(applicationId)
                 .orElseThrow(() -> new EntityNotFoundException("Application with id " + applicationId + " not found."));
@@ -137,6 +141,7 @@ public class DocumentService {
         issueCredit(applicationId);
     }
 
+    @AuditAction
     private void issueCredit(Long applicationId) {
 //        imitate long credit issuing action
         try {

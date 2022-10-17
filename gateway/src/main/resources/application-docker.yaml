@@ -3,6 +3,7 @@ custom:
     url:
       application: 'http://application:8080/application'
       deal: 'http://deal:8080/deal'
+      audit: 'http://audit:8080/audit'
   swagger:
     service:
       url: 'http://localhost:8080'

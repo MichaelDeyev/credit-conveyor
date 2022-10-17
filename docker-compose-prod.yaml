@@ -3,7 +3,7 @@ version: '3.8'
 services:
   #  Gateway
   gateway:
-    image: alxdv/credit-conveyor_gateway:1.0.5
+    image: alxdv/credit-conveyor_gateway:1.0.7
     container_name: gateway
     ports:
       - "8080:8080"
@@ -16,7 +16,7 @@ services:
     container_name: conveyor
   #  Deal
   deal:
-    image: alxdv/credit-conveyor_deal:1.0.3
+    image: alxdv/credit-conveyor_deal:1.0.4
     container_name: deal
     depends_on:
       - deal-db
@@ -40,6 +40,13 @@ services:
     container_name: dossier
     depends_on:
       - kafka
+  #  Audit
+  audit:
+    image: alxdv/credit-conveyor_audit:1.0.0
+    container_name: audit
+    depends_on:
+      - kafka
+      - audit-db
   #  Kafka
   zookeeper:
     image: wurstmeister/zookeeper
@@ -58,7 +65,7 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1"
+      KAFKA_CREATE_TOPICS: "conveyor-finish-registration:1:1,conveyor-create-documents:1:1,conveyor-send-documents:1:1,conveyor-send-ses:1:1,conveyor-credit-issued:1:1,conveyor-application-denied:1:1,audit-action:1:1"
   prometheus:
     image: prom/prometheus
     ports:
@@ -71,8 +78,17 @@ services:
       - deal
   grafana:
     image: grafana/grafana
-    container_name: 'grafana'
+    container_name: grafana
     ports:
-      - '3000:3000'
+      - '3001:3000'
     depends_on:
       - prometheus
+  audit-db:
+    image: redis:6.2-alpine
+    container_name: audit-db
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - audit:/data
