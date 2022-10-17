@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: kafka:9092
+
+  redis:
+    host: audit-db
+    port: 6379

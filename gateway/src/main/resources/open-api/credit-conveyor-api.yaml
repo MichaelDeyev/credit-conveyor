@@ -151,6 +151,42 @@ paths:
         '404':
           description: No applications present
 
+  /admin/audit/{auditId}:
+    parameters:
+      - $ref: '#/components/parameters/auditId'
+    get:
+      summary: Get audit action by id
+      operationId: getAuditActionById
+      description: Get audit action by id.
+      parameters:
+        - $ref: '#/components/parameters/auditId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditAction'
+        '404':
+          description: Audit action not found
+
+  /admin/audit/all:
+    get:
+      summary: Get all audit actions
+      operationId: getAllAuditActions
+      description: Get all audit actions.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuditAction'
+        '404':
+          description: No audit actions present
+
 components:
 
   parameters:
@@ -171,6 +207,15 @@ components:
         format: int64
         example: 123
         description: Application id.
+    auditId:
+      name: auditId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: a9c959b0-4deb-11ed-bdc3-0242ac120002
+        description: UUID of audit action.
 
   schemas:
     LoanApplicationRequestDTO:
@@ -525,7 +570,6 @@ components:
           example: 11223344556677889900
           description: Client's master account.
 
-
     CreditDTO:
       title: Credit
       type: object
@@ -694,3 +738,28 @@ components:
           type: boolean
           example: true
           description: Is salary client?
+    AuditAction:
+      title: Audit action
+      type: object
+      description: Information about audit action.
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          example: a9c959b0-4deb-11ed-bdc3-0242ac120002
+          description: UUID of audit action.
+        actionType:
+          type: string
+          example: START
+          description: Type of audit action (START, SUCCESS, FAILURE)
+        auditService:
+          type: string
+          example: DEAL
+          description: Name of microservice, from witch audit action was registered
+        time:
+          type: string
+          format: date-time
+          description: Date and time, when audit action was created.
+        message:
+          type: string
+          description: Audit action describing message.
