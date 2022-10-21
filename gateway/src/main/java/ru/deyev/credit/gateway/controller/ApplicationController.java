@@ -1,6 +1,6 @@
 package ru.deyev.credit.gateway.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ import ru.deyev.credit.gateway.service.DealService;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ApplicationController implements ApplicationApi {
 
     private final ApplicationService applicationService;

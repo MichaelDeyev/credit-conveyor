@@ -14,23 +14,27 @@ import ru.deyev.credit.deal.model.EmailMessage;
 @RequiredArgsConstructor
 public class DossierService {
 
-    @Value("${custom.message.topic.finish-registration}")
-    private String FINISH_REGISTRATION_TOPIC;
-    @Value("${custom.message.topic.create-documents}")
-    private String CREATE_DOCUMENT_TOPIC;
-    @Value("${custom.message.topic.send-documents}")
-    private String SEND_DOCUMENT_TOPIC;
-    @Value("${custom.message.topic.send-ses}")
-    private String SEND_SES_TOPIC;
-    @Value("${custom.message.topic.credit-issued}")
-    private String CREDIT_ISSUED_TOPIC;
-    @Value("${custom.message.topic.application-denied}")
-    private String APPLICATION_DENIED_TOPIC;
-
-
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     private final ObjectMapper objectMapper;
+
+    @Value("${custom.message.topic.finish-registration}")
+    private String FINISH_REGISTRATION_TOPIC;
+
+    @Value("${custom.message.topic.create-documents}")
+    private String CREATE_DOCUMENT_TOPIC;
+
+    @Value("${custom.message.topic.send-documents}")
+    private String SEND_DOCUMENT_TOPIC;
+
+    @Value("${custom.message.topic.send-ses}")
+    private String SEND_SES_TOPIC;
+
+    @Value("${custom.message.topic.credit-issued}")
+    private String CREDIT_ISSUED_TOPIC;
+
+    @Value("${custom.message.topic.application-denied}")
+    private String APPLICATION_DENIED_TOPIC;
 
     public void sendMessage(EmailMessage message) {
         String topic = evaluateTopic(message.getTheme());

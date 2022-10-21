@@ -1,6 +1,6 @@
 package ru.deyev.credit.dossier.sender;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,9 +13,9 @@ import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.Map;
 
-@Component
-@AllArgsConstructor
 @Slf4j
+@Component
+@RequiredArgsConstructor
 public class EmailSender {
 
     private final JavaMailSender javaMailSender;
@@ -61,7 +61,7 @@ public class EmailSender {
             helper.setSubject(subject);
             helper.setText(text);
 
-            for (Map.Entry<String, File> entry: attachmentsWithNames.entrySet()) {
+            for (Map.Entry<String, File> entry : attachmentsWithNames.entrySet()) {
                 helper.addAttachment(entry.getKey(), entry.getValue());
             }
 

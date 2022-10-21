@@ -1,6 +1,6 @@
 package ru.deyev.credit.dossier.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,11 +9,11 @@ import ru.deyev.credit.dossier.model.MessageFromKafka;
 import ru.deyev.credit.dossier.service.MessageService;
 
 @RestController
-@RequestMapping("dossier/test")
-@AllArgsConstructor
+@RequestMapping("/dossier/test")
+@RequiredArgsConstructor
 public class TestController {
 
-    private MessageService messageService;
+    private final MessageService messageService;
 
     @PostMapping("/message")
     public void sendMessage(@RequestBody MessageFromKafka message) {

@@ -1,6 +1,7 @@
 package ru.deyev.credit.deal.service;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.deal.audit.AuditAction;
@@ -23,16 +24,16 @@ import java.util.List;
 import static ru.deyev.credit.deal.model.ApplicationStatus.PREPARE_DOCUMENTS;
 import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.MANUAL;
 
-@Service
-@AllArgsConstructor
 @Slf4j
+@Service
+@RequiredArgsConstructor
 public class DocumentService {
 
-    private DossierService dossierService;
-    private ApplicationRepository applicationRepository;
-    private CreditRepository creditRepository;
+    private final DossierService dossierService;
+    private final ApplicationRepository applicationRepository;
+    private final CreditRepository creditRepository;
 
-    private MeasureService measureService;
+    private final MeasureService measureService;
 
     public void createDocumentsRequest(Long applicationId) {
 

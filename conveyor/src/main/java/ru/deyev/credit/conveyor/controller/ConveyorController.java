@@ -1,5 +1,6 @@
 package ru.deyev.credit.conveyor.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,22 +15,19 @@ import ru.deyev.credit.conveyor.service.ConveyorFacade;
 import java.util.List;
 
 @RestController
-@RequestMapping("conveyor")
+@RequestMapping("/conveyor")
+@RequiredArgsConstructor
 public class ConveyorController {
 
-    private final ConveyorFacade service;
-
-    public ConveyorController(ConveyorFacade service) {
-        this.service = service;
-    }
+    private final ConveyorFacade facade;
 
     @PostMapping("/offers")
     public ResponseEntity<List<LoanOfferDTO>> generateOffers(@RequestBody LoanApplicationRequestDTO request) {
-        return ResponseEntity.ok(service.generateOffers(request));
+        return ResponseEntity.ok(facade.generateOffers(request));
     }
 
     @PostMapping("/calculation")
     public ResponseEntity<CreditDTO> calculateCredit(@RequestBody ScoringDataDTO scoringData) {
-        return ResponseEntity.ok(service.calculateCredit(scoringData));
+        return ResponseEntity.ok(facade.calculateCredit(scoringData));
     }
 }

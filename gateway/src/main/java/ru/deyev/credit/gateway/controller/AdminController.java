@@ -1,6 +1,7 @@
 package ru.deyev.credit.gateway.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import ru.deyev.credit.gateway.api.AdminApi;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AdminController implements AdminApi {
 
     private final AdminService adminService;
