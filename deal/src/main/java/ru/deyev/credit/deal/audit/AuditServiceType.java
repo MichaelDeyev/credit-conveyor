@@ -1,5 +1,5 @@
 package ru.deyev.credit.deal.audit;
 
-public enum AuditService {
+public enum AuditServiceType {
     DEAL, CONVEYOR, APPLICATION, DOSSIER
 }
