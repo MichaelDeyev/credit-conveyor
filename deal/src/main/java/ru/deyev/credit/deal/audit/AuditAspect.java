@@ -76,7 +76,7 @@ public class AuditAspect {
     private AuditModel createAuditModel(AuditActionType actionType, String message) {
         return AuditModel.builder()
                 .uuid(UUID.randomUUID())
-                .auditService(AuditService.DEAL)
+                .auditServiceType(AuditServiceType.DEAL)
                 .actionType(actionType)
                 .time(LocalDateTime.now())
                 .message(message)
