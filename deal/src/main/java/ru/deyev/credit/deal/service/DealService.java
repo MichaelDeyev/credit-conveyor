@@ -1,6 +1,7 @@
 package ru.deyev.credit.deal.service;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,9 +36,9 @@ import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeE
 import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.MANUAL;
 import static ru.deyev.credit.deal.model.CreditStatus.CALCULATED;
 
-@Service
-@AllArgsConstructor
 @Slf4j
+@Service
+@RequiredArgsConstructor
 public class DealService {
 
     private final ConveyorFeignClient conveyorFeignClient;
