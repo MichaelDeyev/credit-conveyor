@@ -1,6 +1,6 @@
 package ru.deyev.credit.deal.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.deal.audit.AuditAction;
@@ -20,14 +20,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-@AllArgsConstructor
 @Slf4j
+@Service
+@RequiredArgsConstructor
 public class AdminService {
 
-    private ApplicationRepository applicationRepository;
+    private final ApplicationRepository applicationRepository;
 
-    private DossierService dossierService;
+    private final DossierService dossierService;
 
     @AuditAction
     public ApplicationDTO getApplicationById(Long applicationId) {
