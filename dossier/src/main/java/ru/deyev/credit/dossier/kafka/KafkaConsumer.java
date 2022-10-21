@@ -1,6 +1,6 @@
 package ru.deyev.credit.dossier.kafka;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -17,15 +17,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Component
 @Slf4j
-@AllArgsConstructor
+@Component
+@RequiredArgsConstructor
 public class KafkaConsumer {
 
-    private EmailSender emailSender;
-    private MessageService messageService;
-    private PrintedFormService printedFormService;
-    private DealFeignClient dealFeignClient;
+    private final EmailSender emailSender;
+
+    private final MessageService messageService;
+
+    private final PrintedFormService printedFormService;
+
+    private final DealFeignClient dealFeignClient;
 
     @KafkaListener(topics = "conveyor-finish-registration", groupId = "${spring.kafka.consumer.group-id}")
     public void consumeFinishRegistrationMessage(String message) {

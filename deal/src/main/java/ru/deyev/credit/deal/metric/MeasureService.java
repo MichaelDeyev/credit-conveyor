@@ -17,9 +17,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MeasureService {
 
-    private final MeterRegistry meterRegistry;
-
     private static final String COUNTER_STATUS_NAME = "application.status";
+
+    private final MeterRegistry meterRegistry;
 
     @PostConstruct
     private void initStatusCounters() {
@@ -34,7 +34,6 @@ public class MeasureService {
     }
 
     public void incrementStatusCounter(ApplicationStatus status) {
-
         Counter counter = meterRegistry.counter(COUNTER_STATUS_NAME, List.of(Tag.of("status", status.name())));
         log.info("Get counter {} for application status {} and increment it", counter, status);
         counter.increment();

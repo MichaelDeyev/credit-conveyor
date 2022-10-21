@@ -6,7 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class MessageFromKafka {
+
     private String address;
+
     private MessageType theme;
+
     private Long applicationId;
 }
