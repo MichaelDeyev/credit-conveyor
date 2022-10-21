@@ -96,16 +96,17 @@ public class ScoringService {
         }
     }
 
+/**
+ * Формула расчета аннуитетного платежа:
+ * ЕП = СК * КА, где
+ * СК - сумма кредита
+ * КА - коэффициент аннуитета
+ * КА = (МП * К)/(К-1), где
+ * МП - месячная процентная ставка
+ * К = (1 + МП)^КП, где
+ * КП - количество платежей
+*/
     public BigDecimal calculateMonthlyPayment(BigDecimal totalAmount, Integer term, BigDecimal rate) {
-//        Формула расчета аннуитетного платежа:
-//         ЕП = СК * КА, где
-//          СК - сумма кредита
-//            КА - коэффициент аннуитета
-//
-//            КА = (МП * К)/(К-1), где
-//              МП - месячная процентная ставка
-//              К = (1 + МП)^КП, где
-//                КП - количество платежей
         log.info("-------------- Calculating monthly payment --------------");
         log.info("totalAmount = {}, term = {}, rate = {}", totalAmount, term, rate);
 
@@ -129,17 +130,14 @@ public class ScoringService {
         return monthlyPayment;
     }
 
-    public BigDecimal calculatePSK(List<PaymentScheduleElement> paymentSchedule,
-                                   BigDecimal requestedAmount, Integer term) {
-//        Формула расчета ПСК:
-//
-//        (СВ/СЗ - 1)/Г * 100, где
-//
-//          СВ — сумма всех выплат;
-//
-//          СЗ — сумма займа;
-//
-//          Г — срок кредитования в годах;
+        /**
+         * Формула расчета ПСК:
+         * (СВ/СЗ - 1)/Г * 100, где
+         * СВ — сумма всех выплат;
+         * СЗ — сумма займа;
+         * Г — срок кредитования в годах;
+         */
+    public BigDecimal calculatePSK(List<PaymentScheduleElement> paymentSchedule, BigDecimal requestedAmount, Integer term) {
 
         log.info("-------------- Calculating PSK --------------");
         BigDecimal paymentAmount = paymentSchedule
@@ -212,8 +210,7 @@ public class ScoringService {
         return number.divide(divisor, DEFAULT_DECIMAL_SCALE, RoundingMode.CEILING);
     }
 
-    /* Правила скоринга:
-     *
+    /** Правила скоринга:
      *  Безработный -> отказ; Самозанятый -> ставка увеличивается на 1; Владелец бизнеса -> ставка увеличивается на 3
      *  Позиция Менеджер среднего звена -> ставка уменьшается на 2; Позиция Топ-менеджер -> ставка уменьшается на 4
      *  Сумма займа > зарплата*20 -> отказ
@@ -223,7 +220,7 @@ public class ScoringService {
      *  Срок кредита < 1 год -> ставка увеличивается на 5; Срок кредита >= 10 лет -> ставка уменьшается на 2
      *  Пол не бинарный - ставка увеличивается на 3; Женщина от 35 до 60 лет - ставка уменьшается на 3; Мужчина от 30 до 55 лет - ставка уменьшается на 3
      *  Общий стаж работы < 1 года - отказ; Текущий стаж работы < 3 месяцев - отказ
-     * */
+     */
     public void scoring(ScoringDataDTO scoringData) {
 
         log.info("-------------- Start scoring process for client {} {} {} --------------",

@@ -1,6 +1,6 @@
 package ru.deyev.credit.deal.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import ru.deyev.credit.deal.service.DossierService;
 
 @RestController
 @RequestMapping("/test/message")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TestMessageController {
 
     private final DossierService dossierService;
