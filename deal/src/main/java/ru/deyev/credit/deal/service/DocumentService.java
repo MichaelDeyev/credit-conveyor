@@ -1,6 +1,5 @@
 package ru.deyev.credit.deal.service;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,10 +17,9 @@ import ru.deyev.credit.deal.repository.CreditRepository;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
-import static ru.deyev.credit.deal.model.ApplicationStatus.PREPARE_DOCUMENTS;
+import static ru.deyev.credit.deal.model.ApplicationStatus.*;
+import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.AUTOMATIC;
 import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.MANUAL;
 
 @Slf4j
@@ -32,8 +30,7 @@ public class DocumentService {
     private final DossierService dossierService;
     private final ApplicationRepository applicationRepository;
     private final CreditRepository creditRepository;
-
-    private final MeasureService measureService;
+    private final AdminService adminService;
 
     public void createDocumentsRequest(Long applicationId) {
 
@@ -64,18 +61,12 @@ public class DocumentService {
                     + ", but should be in status " + ApplicationStatus.CC_APPROVED);
         }
 
-        List<ApplicationStatusHistoryDTO> statusHistory = application.getStatusHistory();
-        statusHistory.add(
-                new ApplicationStatusHistoryDTO()
-                        .status(PREPARE_DOCUMENTS)
-                        .time(LocalDateTime.now())
-                        .changeType(MANUAL));
+        adminService.updateApplicationStatus(application, PREPARE_DOCUMENTS, MANUAL);
 
-        applicationRepository.save(application
-                .setStatus(PREPARE_DOCUMENTS)
-                .setStatusHistory(statusHistory));
+        applicationRepository.save(application);
 
-        measureService.incrementStatusCounter(PREPARE_DOCUMENTS);
+//        TODO
+//        measureService.incrementStatusCounter(PREPARE_DOCUMENTS);
 
         log.info("Sending send document request for application {}, to email {}",
                 application, application.getClient().getEmail());
@@ -126,18 +117,12 @@ public class DocumentService {
                     + ". It should be in status " + application.getSesCode());
         }
 
-        List<ApplicationStatusHistoryDTO> statusHistory = application.getStatusHistory();
-        statusHistory.add(new ApplicationStatusHistoryDTO()
-                .status(ApplicationStatus.DOCUMENT_SIGNED)
-                .time(LocalDateTime.now())
-                .changeType(ApplicationStatusHistoryDTO.ChangeTypeEnum.MANUAL));
+        adminService.updateApplicationStatus(application, DOCUMENT_SIGNED, MANUAL);
 
+        applicationRepository.save(application.setSignDate(LocalDate.now()));
 
-        applicationRepository.save(application.setStatus(ApplicationStatus.DOCUMENT_SIGNED)
-                .setStatusHistory(statusHistory)
-                .setSignDate(LocalDate.now()));
-
-        measureService.incrementStatusCounter(ApplicationStatus.DOCUMENT_SIGNED);
+//        TODO
+//        measureService.incrementStatusCounter(ApplicationStatus.DOCUMENT_SIGNED);
 
         issueCredit(applicationId);
     }
@@ -157,18 +142,12 @@ public class DocumentService {
         Credit credit = creditRepository.findById(creditId)
                 .orElseThrow(() -> new EntityNotFoundException("Credit with id " + creditId + " not found."));
 
-        List<ApplicationStatusHistoryDTO> statusHistory = application.getStatusHistory();
-        statusHistory.add(new ApplicationStatusHistoryDTO()
-                .status(ApplicationStatus.CREDIT_ISSUED)
-                .time(LocalDateTime.now())
-                .changeType(ApplicationStatusHistoryDTO.ChangeTypeEnum.AUTOMATIC));
+        adminService.updateApplicationStatus(application, CREDIT_ISSUED, AUTOMATIC);
 
+        applicationRepository.save(application);
 
-        applicationRepository.save(application
-                .setStatus(ApplicationStatus.CREDIT_ISSUED)
-                .setStatusHistory(statusHistory));
-
-        measureService.incrementStatusCounter(ApplicationStatus.CREDIT_ISSUED);
+//        TODO
+//        measureService.incrementStatusCounter(ApplicationStatus.CREDIT_ISSUED);
 
         creditRepository.save(credit.setCreditStatus(CreditStatus.ISSUED));
 
