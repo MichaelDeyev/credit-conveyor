@@ -8,6 +8,7 @@ import ru.deyev.credit.deal.model.Application;
 import ru.deyev.credit.deal.model.ApplicationDTO;
 import ru.deyev.credit.deal.model.ApplicationStatus;
 import ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO;
+import ru.deyev.credit.deal.metric.Monitored;
 import ru.deyev.credit.deal.model.Client;
 import ru.deyev.credit.deal.model.ClientDTO;
 import ru.deyev.credit.deal.model.Credit;
@@ -84,11 +85,9 @@ public class AdminService {
             applicationDTO.sesCode(application.getSesCode().toString());
         }
 
-        List<ApplicationStatusHistoryDTO> statusHistory = application.getStatusHistory();
-
         return applicationDTO
                 .id(application.getId())
-                .statusHistory(statusHistory)
+                .statusHistory(application.getStatusHistory())
                 .status(application.getStatus())
                 .creationDate(application.getCreationDate().atStartOfDay());
     }
@@ -101,12 +100,6 @@ public class AdminService {
         log.info("Updating application {} status from {} to {}",
                 applicationId, application.getStatus(), status);
 
-        List<ApplicationStatusHistoryDTO> statusHistory = application.getStatusHistory();
-        statusHistory.add(new ApplicationStatusHistoryDTO()
-                .status(status)
-                .time(LocalDateTime.now())
-                .changeType(ApplicationStatusHistoryDTO.ChangeTypeEnum.AUTOMATIC));
-
         if (status == ApplicationStatus.CLIENT_DENIED) {
             log.info("Application {} denied", applicationId);
             dossierService.sendMessage(new EmailMessage()
@@ -115,9 +108,9 @@ public class AdminService {
                     .address(application.getClient().getEmail()));
         }
 
-        applicationRepository.save(application
-                .setStatus(status)
-                .setStatusHistory(statusHistory));
+        updateApplicationStatus(application, status, ApplicationStatusHistoryDTO.ChangeTypeEnum.AUTOMATIC);
+
+        applicationRepository.save(application);
     }
 
     @AuditAction
@@ -126,5 +119,12 @@ public class AdminService {
                 .stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @Monitored
+    public void updateApplicationStatus(Application application,
+                                        ApplicationStatus newStatus,
+                                        ApplicationStatusHistoryDTO.ChangeTypeEnum changeType) {
+        application.updateApplicationStatus(newStatus, changeType);
     }
 }

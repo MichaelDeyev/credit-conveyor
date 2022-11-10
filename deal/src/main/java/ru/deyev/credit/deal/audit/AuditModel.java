@@ -13,7 +13,7 @@ import java.util.UUID;
 public class AuditModel {
     private final UUID uuid;
     private final AuditActionType actionType;
-    private final AuditServiceType auditServiceType;
+    private final AuditService auditService;
     private final LocalDateTime time;
     private final String message;
 }

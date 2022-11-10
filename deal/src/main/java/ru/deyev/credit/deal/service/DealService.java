@@ -1,12 +1,12 @@
 package ru.deyev.credit.deal.service;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.deyev.credit.deal.feign.ConveyorFeignClient;
 import ru.deyev.credit.deal.metric.MeasureService;
+import ru.deyev.credit.deal.metric.Monitored;
 import ru.deyev.credit.deal.model.Application;
 import ru.deyev.credit.deal.model.ApplicationStatus;
 import ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO;
@@ -53,7 +53,7 @@ public class DealService {
 
     private final CreditRepository creditRepository;
 
-    private final MeasureService measureService;
+    private final AdminService adminService;
 
     public List<LoanOfferDTO> createApplication(@RequestBody LoanApplicationRequestDTO request) {
         Client newClient = createClientByRequest(request);
@@ -63,29 +63,26 @@ public class DealService {
         log.info("createApplication(), savedClient={}", savedClient);
         Application newApplication = new Application()
                 .setClient(savedClient)
-                .setCreationDate(LocalDate.now())
-                .setStatus(PREAPPROVAL)
-                .setStatusHistory(List.of(
-                        new ApplicationStatusHistoryDTO()
-                                .status(PREAPPROVAL)
-                                .time(LocalDateTime.now())
-                                .changeType(AUTOMATIC)));
+                .setCreationDate(LocalDate.now());
+
+        adminService.updateApplicationStatus(newApplication, PREAPPROVAL, MANUAL);
 
         Application savedApplication = applicationRepository.save(newApplication);
         clientRepository.save(savedClient.setApplication(savedApplication));
 
         List<LoanOfferDTO> loanOffers = conveyorFeignClient.generateOffers(request).getBody();
 
-        measureService.incrementStatusCounter(savedApplication.getStatus());
+        //        TODO
+//        measureService.incrementStatusCounter(savedApplication.getStatus());
 
-        assert loanOffers != null;
-        loanOffers.forEach(loanOfferDTO -> loanOfferDTO.setApplicationId(savedApplication.getId()));
+        if (loanOffers != null) {
+            loanOffers.forEach(loanOfferDTO -> loanOfferDTO.setApplicationId(savedApplication.getId()));
+        }
 
         log.info("createApplication(), savedApplication={}", savedApplication);
         log.info("Received offers: {}", loanOffers);
         return loanOffers;
     }
-
 
     public void calculateCredit(Long applicationId, ScoringDataDTO scoringData) {
         Application application = applicationRepository.findById(applicationId).orElseThrow(EntityNotFoundException::new);
@@ -104,7 +101,7 @@ public class DealService {
                 .isSalaryClient(appliedOffer.getIsSalaryClient());
 
         log.info("calculateCredit(), full scoringData={}", scoringData);
-        CreditDTO creditDTO = null;
+        CreditDTO creditDTO;
 
         PassportInfo fullPassportInfo = new PassportInfo()
                 .series(client.getPassportInfo().getSeries())
@@ -117,22 +114,8 @@ public class DealService {
             creditDTO = conveyorFeignClient.calculateCredit(scoringData).getBody();
         } catch (Exception e) {
             log.warn("Credit conveyor denied application by these reasons: {}", e.getMessage());
-            applicationRepository.save(application.setStatus(CC_DENIED));
 
-            measureService.incrementStatusCounter(CC_DENIED);
-
-            clientRepository.save(client
-                    .setGender(scoringData.getGender().name())
-                    .setPassportInfo(fullPassportInfo)
-                    .setMaritalStatus(scoringData.getMaritalStatus().name())
-                    .setDependentAmount(scoringData.getDependentAmount())
-                    .setEmploymentDTO(scoringData.getEmployment())
-                    .setAccount(scoringData.getAccount()));
-
-            dossierService.sendMessage(new EmailMessage()
-                    .theme(EmailMessage.ThemeEnum.APPLICATION_DENIED)
-                    .applicationId(applicationId)
-                    .address(application.getClient().getEmail()));
+            denyApplication(application, client, scoringData, fullPassportInfo, AUTOMATIC);
 
 //           method ends normally, clients will know about deny by email
             return;
@@ -163,40 +146,40 @@ public class DealService {
                 .setAccount(scoringData.getAccount())
                 .setCredit(credit));
 
-        List<ApplicationStatusHistoryDTO> updatedStatusHistory = updateStatusHistory(application.getStatusHistory(), CC_APPROVED, AUTOMATIC);
+        adminService.updateApplicationStatus(application, CC_APPROVED, AUTOMATIC);
 
-        applicationRepository.save(application
-                .setStatus(CC_APPROVED)
-                .setStatusHistory(updatedStatusHistory)
-                .setCredit(credit));
+        applicationRepository.save(application.setCredit(credit));
+
         log.info("calculateCredit(), updated application={}", application);
 
-        measureService.incrementStatusCounter(CC_APPROVED);
+////                TODO
+//        measureService.incrementStatusCounter(CC_APPROVED);
 
         documentService.createDocumentsRequest(applicationId);
     }
 
     public void applyOffer(LoanOfferDTO loanOfferDTO) {
         Application application = applicationRepository.getById(loanOfferDTO.getApplicationId());
-        List<ApplicationStatusHistoryDTO> updatedStatusHistory = updateStatusHistory(application.getStatusHistory(), APPROVED, MANUAL);
 
-        Application updatedApplication = applicationRepository.save(
-                application
-                        .setStatus(APPROVED)
-                        .setAppliedOffer(loanOfferDTO)
-                        .setStatusHistory(updatedStatusHistory));
+        adminService.updateApplicationStatus(application, APPROVED, MANUAL);
 
-        measureService.incrementStatusCounter(application.getStatus());
+       application
+               .setAppliedOffer(loanOfferDTO);
+
+        applicationRepository.save(application);
+
+//        //        TODO
+//        measureService.incrementStatusCounter(application.getStatus());
 
         EmailMessage message = new EmailMessage()
-                .address(updatedApplication.getClient().getEmail())
-                .applicationId(updatedApplication.getId())
+                .address(application.getClient().getEmail())
+                .applicationId(application.getId())
                 .theme(EmailMessage.ThemeEnum.FINISH_REGISTRATION);
         log.info("applyOffer - start sending message to dossier message = {}", message);
         dossierService.sendMessage(message);
         log.info("applyOffer - message sent to dossier");
 
-        log.info("applyOffer - end, updatedApplication={}", updatedApplication);
+        log.info("applyOffer - end, updatedApplication={}", application);
     }
 
     private Client createClientByRequest(LoanApplicationRequestDTO request) {
@@ -211,13 +194,30 @@ public class DealService {
                 .setEmail(request.getEmail());
     }
 
-    private List<ApplicationStatusHistoryDTO> updateStatusHistory(List<ApplicationStatusHistoryDTO> previous,
-                                                                  ApplicationStatus newStatus,
-                                                                  ApplicationStatusHistoryDTO.ChangeTypeEnum changeType) {
-        previous.add(new ApplicationStatusHistoryDTO()
-                .status(newStatus)
-                .time(LocalDateTime.now())
-                .changeType(changeType));
-        return previous;
+    private void denyApplication(Application application,
+                                 Client client,
+                                 ScoringDataDTO scoringData,
+                                 PassportInfo passportInfo,
+                                 ApplicationStatusHistoryDTO.ChangeTypeEnum changeType) {
+
+        adminService.updateApplicationStatus(application, CC_DENIED, changeType);
+        applicationRepository.save(application);
+
+
+////        TODO
+//        measureService.incrementStatusCounter(CC_DENIED);
+
+        clientRepository.save(client
+                .setGender(scoringData.getGender().name())
+                .setPassportInfo(passportInfo)
+                .setMaritalStatus(scoringData.getMaritalStatus().name())
+                .setDependentAmount(scoringData.getDependentAmount())
+                .setEmploymentDTO(scoringData.getEmployment())
+                .setAccount(scoringData.getAccount()));
+
+        dossierService.sendMessage(new EmailMessage()
+                .theme(EmailMessage.ThemeEnum.APPLICATION_DENIED)
+                .applicationId(application.getId())
+                .address(application.getClient().getEmail()));
     }
 }
