@@ -36,3 +36,51 @@ jobs:
             --source-directory,deal,
             --baseline,qodana-deal.sarif.json
           artifact-name: qodana-deal
+  qodana-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 'Use qodana-application config'
+        run: cp qodana-application.yaml qodana.yaml
+
+      - name: 'Qodana Application'
+        uses: JetBrains/qodana-action@v2022.3.0
+        with:
+          args: |
+            --source-directory,application,
+            --baseline,qodana-application.sarif.json
+          artifact-name: qodana-application
+  qodana-dossier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 'Use qodana-dossier config'
+        run: cp qodana-dossier.yaml qodana.yaml
+
+      - name: 'Qodana Dossier'
+        uses: JetBrains/qodana-action@v2022.3.0
+        with:
+          args: |
+            --source-directory,dossier,
+            --baseline,qodana-dossier.sarif.json
+          artifact-name: qodana-dossier
+  qodana-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 'Use qodana-gateway config'
+        run: cp qodana-gateway.yaml qodana.yaml
+
+      - name: 'Qodana Gateway'
+        uses: JetBrains/qodana-action@v2022.3.0
+        with:
+          args: |
+            --source-directory,gateway,
+            --baseline,qodana-gateway.sarif.json
+          artifact-name: qodana-gateway
