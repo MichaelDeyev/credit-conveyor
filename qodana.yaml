@@ -1,3 +1,0 @@
-version: "1.0"
-#projectJDK: 11
-bootstrap: cp qodana-conveyor.yaml qodana.yaml

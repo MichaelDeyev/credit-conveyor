@@ -1,2 +1,3 @@
 version: "1.0"
+projectJDK: 11
 linter: jetbrains/qodana-jvm-community:2022.3
