@@ -10,21 +10,26 @@ on:
 jobs:
   qodana:
     runs-on: ubuntu-latest
-    defaults:
-      uses:
-        working-directory: ./conveyor
+#    defaults:
+#      uses:
+#        working-directory: ./conveyor
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: 'ls -a'
         run: ls -a
+
       - name: 'Qodana Scan conveyor'
+        uses: JetBrains/qodana-action@v2022.3.0
+      - run: |
+          echo "A initial message"
+          ls -a
+          echo "finish mess"
 #        working-directory: ./conveyor
 #        run: realpath OfferService.java
-        uses: JetBrains/qodana-action@v2022.3.0
-        with:
-          path: ./conveyor
+#        with:
+#          path: ./conveyor
 #      - uses: github/codeql-action/upload-sarif@v2
 #        with:
 #          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
