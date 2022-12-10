@@ -10,9 +10,9 @@ on:
 jobs:
   qodana:
     runs-on: ubuntu-latest
-#    defaults:
-#      run:
-#        working-directory: ./conveyor
+    defaults:
+      run:
+        working-directory: ./conveyor
     steps:
       - uses: actions/checkout@v3
         with:
