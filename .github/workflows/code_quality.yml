@@ -26,7 +26,7 @@ jobs:
       - name: 'Qodana Scan conveyor'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
-          path: ./conveyor
+          entrypoint: /conveyor
       - name: 'ls -a'
         run: |
           echo "A initial message"
