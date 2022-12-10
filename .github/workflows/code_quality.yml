@@ -19,21 +19,25 @@ jobs:
           fetch-depth: 0
       - run: |
           echo "A initial message"
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install jetbrains/utils/qodana
           cd ./conveyor
+          qodana init
+          qodana scan --show-report
           ls -a
           echo "finish mess"
 #          qodana scan --show-report
-      - name: 'Qodana Scan conveyor'
-        uses: JetBrains/qodana-action@v2022.3.0
-        with:
-          entrypoint: /conveyor
-      - name: 'ls -a'
-        run: |
-          echo "A initial message"
-          ls -a
-          cd ./conveyor
-          ls -a
-          echo "finish mess"
+#      - name: 'Qodana Scan conveyor'
+#        uses: JetBrains/qodana-action@v2022.3.0
+#        with:
+#          entrypoint: cd ./conveyor
+#      - name: 'ls -a'
+#        run: |
+#          echo "A initial message"
+#          ls -a
+#          cd ./conveyor
+#          ls -a
+#          echo "finish mess"
 #        working-directory: ./conveyor
 #        run: realpath OfferService.java
 #      - uses: github/codeql-action/upload-sarif@v2
