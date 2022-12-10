@@ -10,15 +10,16 @@ on:
 jobs:
   qodana:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./conveyor
+#    defaults:
+#      run:
+#        working-directory: ./conveyor
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 'Qodana Scan credit-conveyor'
-#        working-directory: ./credit-conveyor
+      - name: 'Qodana Scan conveyor'
+        working-directory: ./conveyor
+        run: realpath OfferService.java
         uses: JetBrains/qodana-action@v2022.3.0
 #      - uses: github/codeql-action/upload-sarif@v2
 #        with:
