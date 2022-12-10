@@ -11,7 +11,7 @@ jobs:
   qodana:
     runs-on: ubuntu-latest
     defaults:
-      run:
+      uses:
         working-directory: ./conveyor
     steps:
       - uses: actions/checkout@v3
