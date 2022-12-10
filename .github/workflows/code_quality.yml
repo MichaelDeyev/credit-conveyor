@@ -20,19 +20,19 @@ jobs:
             --source-directory,conveyor,
             --baseline,qodana-conveyor.sarif.json
           artifact-name: qodana-conveyor
-  qodana-deal:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: 'Use qodana-deal config'
-        run: cp qodana-deal.yaml qodana.yaml
-
-      - name: 'Qodana Deal'
-        uses: JetBrains/qodana-action@v2022.3.0
-        with:
-          args: |
-            --source-directory,deal,
-            --baseline,qodana-deal.sarif.json
-          artifact-name: qodana-deal
+#  qodana-deal:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#        with:
+#          fetch-depth: 0
+#      - name: 'Use qodana-deal config'
+#        run: cp qodana-deal.yaml qodana.yaml
+#
+#      - name: 'Qodana Deal'
+#        uses: JetBrains/qodana-action@v2022.3.0
+#        with:
+#          args: |
+#            --source-directory,deal,
+#            --baseline,qodana-deal.sarif.json
+#          artifact-name: qodana-deal
