@@ -17,19 +17,32 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 'ls -a'
-        run: ls -a
-
-      - name: 'Qodana Scan conveyor'
-        uses: JetBrains/qodana-action@v2022.3.0
       - run: |
           echo "A initial message"
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/runner/.bash_profile
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bash_profile
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install jetbrains/utils/qodana
+          cd ./conveyor
+          qodana init
+          qodana scan --show-report
           ls -a
           echo "finish mess"
+#          qodana scan --show-report
+#      - name: 'Qodana Scan conveyor'
+#        uses: JetBrains/qodana-action@v2022.3.0
+#        with:
+#          entrypoint: cd ./conveyor
+#      - name: 'ls -a'
+#        run: |
+#          echo "A initial message"
+#          ls -a
+#          cd ./conveyor
+#          ls -a
+#          echo "finish mess"
 #        working-directory: ./conveyor
 #        run: realpath OfferService.java
-#        with:
-#          path: ./conveyor
 #      - uses: github/codeql-action/upload-sarif@v2
 #        with:
 #          sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
