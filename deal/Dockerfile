@@ -1,4 +1,4 @@
-FROM maven:3.8.1-openjdk-11 AS MAVEN_BUILD
+FROM maven:3.8-amazoncorretto-11 AS MAVEN_BUILD
 
 COPY pom.xml /build/
 COPY src /build/src/
@@ -6,7 +6,7 @@ COPY src /build/src/
 WORKDIR /build/
 RUN mvn clean install -Dmaven.test.skip=true
 
-FROM openjdk:11
+FROM amazoncorretto:11.0.17-alpine
 
 WORKDIR /app
 
