@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.deal.audit.AuditAction;
+import ru.deyev.credit.deal.metric.Monitored;
 import ru.deyev.credit.deal.model.Application;
 import ru.deyev.credit.deal.model.ApplicationDTO;
 import ru.deyev.credit.deal.model.ApplicationStatus;
 import ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO;
-import ru.deyev.credit.deal.metric.Monitored;
 import ru.deyev.credit.deal.model.Client;
 import ru.deyev.credit.deal.model.ClientDTO;
 import ru.deyev.credit.deal.model.Credit;
@@ -17,7 +17,6 @@ import ru.deyev.credit.deal.model.EmailMessage;
 import ru.deyev.credit.deal.repository.ApplicationRepository;
 
 import javax.persistence.EntityNotFoundException;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 

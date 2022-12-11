@@ -5,10 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.deyev.credit.deal.audit.AuditAction;
 import ru.deyev.credit.deal.exception.DealException;
-import ru.deyev.credit.deal.metric.MeasureService;
 import ru.deyev.credit.deal.model.Application;
 import ru.deyev.credit.deal.model.ApplicationStatus;
-import ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO;
 import ru.deyev.credit.deal.model.Credit;
 import ru.deyev.credit.deal.model.CreditStatus;
 import ru.deyev.credit.deal.model.EmailMessage;
@@ -18,7 +16,9 @@ import ru.deyev.credit.deal.repository.CreditRepository;
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDate;
 
-import static ru.deyev.credit.deal.model.ApplicationStatus.*;
+import static ru.deyev.credit.deal.model.ApplicationStatus.CREDIT_ISSUED;
+import static ru.deyev.credit.deal.model.ApplicationStatus.DOCUMENT_SIGNED;
+import static ru.deyev.credit.deal.model.ApplicationStatus.PREPARE_DOCUMENTS;
 import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.AUTOMATIC;
 import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeEnum.MANUAL;
 
@@ -28,8 +28,11 @@ import static ru.deyev.credit.deal.model.ApplicationStatusHistoryDTO.ChangeTypeE
 public class DocumentService {
 
     private final DossierService dossierService;
+
     private final ApplicationRepository applicationRepository;
+
     private final CreditRepository creditRepository;
+
     private final AdminService adminService;
 
     public void createDocumentsRequest(Long applicationId) {
@@ -64,9 +67,6 @@ public class DocumentService {
         adminService.updateApplicationStatus(application, PREPARE_DOCUMENTS, MANUAL);
 
         applicationRepository.save(application);
-
-//        TODO
-//        measureService.incrementStatusCounter(PREPARE_DOCUMENTS);
 
         log.info("Sending send document request for application {}, to email {}",
                 application, application.getClient().getEmail());
@@ -121,9 +121,6 @@ public class DocumentService {
 
         applicationRepository.save(application.setSignDate(LocalDate.now()));
 
-//        TODO
-//        measureService.incrementStatusCounter(ApplicationStatus.DOCUMENT_SIGNED);
-
         issueCredit(applicationId);
     }
 
@@ -145,9 +142,6 @@ public class DocumentService {
         adminService.updateApplicationStatus(application, CREDIT_ISSUED, AUTOMATIC);
 
         applicationRepository.save(application);
-
-//        TODO
-//        measureService.incrementStatusCounter(ApplicationStatus.CREDIT_ISSUED);
 
         creditRepository.save(credit.setCreditStatus(CreditStatus.ISSUED));
 
