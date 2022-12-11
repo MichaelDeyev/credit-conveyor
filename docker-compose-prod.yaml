@@ -3,20 +3,20 @@ version: '3.8'
 services:
   #  Gateway
   gateway:
-    image: alxdv/credit-conveyor_gateway:1.0.7
+    image: alxdv/credit-conveyor_gateway:1.0.8
     container_name: gateway
     ports:
       - "8080:8080"
   #  Application
   application:
-    image: alxdv/credit-conveyor_application:1.0.3
+    image: alxdv/credit-conveyor_application:1.0.4
     container_name: application
   conveyor:
-    image: alxdv/credit-conveyor_conveyor:1.0.3
+    image: alxdv/credit-conveyor_conveyor:1.0.4
     container_name: conveyor
   #  Deal
   deal:
-    image: alxdv/credit-conveyor_deal:1.0.4
+    image: alxdv/credit-conveyor_deal:1.0.5
     container_name: deal
     depends_on:
       - deal-db
@@ -36,13 +36,13 @@ services:
     restart: unless-stopped
   #  Dossier
   dossier:
-    image: alxdv/credit-conveyor_dossier:1.0.5
+    image: alxdv/credit-conveyor_dossier:1.0.6
     container_name: dossier
     depends_on:
       - kafka
   #  Audit
   audit:
-    image: alxdv/credit-conveyor_audit:1.0.0
+    image: alxdv/credit-conveyor_audit:1.0.1
     container_name: audit
     depends_on:
       - kafka
@@ -92,3 +92,6 @@ services:
     command: redis-server --save 20 1 --loglevel warning
     volumes:
       - audit:/data
+volumes:
+  audit:
+    driver: local

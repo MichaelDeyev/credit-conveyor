@@ -4,10 +4,12 @@ services:
   #  Kafka
   zookeeper:
     image: wurstmeister/zookeeper
+    container_name: zookeeper
     expose:
       - 2181
   kafka:
     image: wurstmeister/kafka
+    container_name: kafka
     expose:
       - 9092
     ports:
@@ -28,7 +30,7 @@ services:
       - ./prometheus:/prometheus
   grafana:
     image: grafana/grafana
-    container_name: 'grafana'
+    container_name: grafana
     ports:
       - '3000:3000'
     depends_on:
