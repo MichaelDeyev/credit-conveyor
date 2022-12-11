@@ -1,7 +1,6 @@
 name: Qodana
 on:
   workflow_dispatch:
-  pull_request:
   push:
 jobs:
   qodana-conveyor:
@@ -12,14 +11,14 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-conveyor config'
         run: cp qodana-conveyor.yaml qodana.yaml
-
       - name: 'Qodana Conveyor'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
           args: |
-            --source-directory,conveyor,
+            --source-directory,conveyor/src/main/java/ru/deyev/credit/conveyor,
             --baseline,qodana-conveyor.sarif.json
           artifact-name: qodana-conveyor
+
   qodana-deal:
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +27,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-deal config'
         run: cp qodana-deal.yaml qodana.yaml
-
       - name: 'Qodana Deal'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
@@ -36,6 +34,7 @@ jobs:
             --source-directory,deal,
             --baseline,qodana-deal.sarif.json
           artifact-name: qodana-deal
+
   qodana-application:
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +43,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-application config'
         run: cp qodana-application.yaml qodana.yaml
-
       - name: 'Qodana Application'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
@@ -52,6 +50,7 @@ jobs:
             --source-directory,application,
             --baseline,qodana-application.sarif.json
           artifact-name: qodana-application
+
   qodana-dossier:
     runs-on: ubuntu-latest
     steps:
@@ -60,7 +59,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-dossier config'
         run: cp qodana-dossier.yaml qodana.yaml
-
       - name: 'Qodana Dossier'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
@@ -68,6 +66,7 @@ jobs:
             --source-directory,dossier,
             --baseline,qodana-dossier.sarif.json
           artifact-name: qodana-dossier
+
   qodana-gateway:
     runs-on: ubuntu-latest
     steps:
@@ -76,7 +75,6 @@ jobs:
           fetch-depth: 0
       - name: 'Use qodana-gateway config'
         run: cp qodana-gateway.yaml qodana.yaml
-
       - name: 'Qodana Gateway'
         uses: JetBrains/qodana-action@v2022.3.0
         with:
