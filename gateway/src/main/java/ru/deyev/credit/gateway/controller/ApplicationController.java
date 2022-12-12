@@ -2,6 +2,7 @@ package ru.deyev.credit.gateway.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.deyev.credit.gateway.api.ApplicationApi;
@@ -21,23 +22,27 @@ public class ApplicationController implements ApplicationApi {
 
     private final DealService dealService;
 
+    @CrossOrigin
     @Override
     public ResponseEntity<Void> applyOffer(LoanOfferDTO loanOfferDTO) {
         applicationService.applyOffer(loanOfferDTO);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @Override
     public ResponseEntity<List<LoanOfferDTO>> createLoanApplication(LoanApplicationRequestDTO loanApplicationRequestDTO) {
         return ResponseEntity.ok(applicationService.createLoanApplication(loanApplicationRequestDTO));
     }
 
+    @CrossOrigin
     @Override
     public ResponseEntity<Void> denyLoanApplication(@PathVariable Long applicationId) {
         applicationService.denyLoanApplication(applicationId);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @Override
     public ResponseEntity<Void> finishRegistration(Long applicationId, FinishRegistrationRequestDTO finishRegistrationRequestDTO) {
         dealService.finishRegistration(applicationId, finishRegistrationRequestDTO);
