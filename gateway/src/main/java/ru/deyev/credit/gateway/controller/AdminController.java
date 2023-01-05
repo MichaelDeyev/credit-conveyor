@@ -18,25 +18,25 @@ public class AdminController implements AdminApi {
 
     private final AdminService adminService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<List<ApplicationDTO>> getAllApplications() {
         return ResponseEntity.ok(adminService.getAllApplications());
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<ApplicationDTO> getApplicationById(Long applicationId) {
         return ResponseEntity.ok(adminService.getApplicationById(applicationId));
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<List<AuditAction>> getAllAuditActions() {
         return ResponseEntity.ok(adminService.getAllAuditActions());
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<AuditAction> getAuditActionById(UUID auditId) {
         return ResponseEntity.ok(adminService.getAuditActionById(auditId));

@@ -187,6 +187,22 @@ paths:
         '404':
           description: No audit actions present
 
+  /email:
+    post:
+      summary: Mock for frontend
+      operationId: mailMock
+      description: Mock method for frontend, do nothing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MockMailDTO'
+      responses:
+        '200':
+          description: OK
+
+
 components:
 
   parameters:
@@ -434,6 +450,15 @@ components:
       pattern: '[0-9]{4}'
       example: 1234
       description: Simple Electric Sign code for signing documents.
+
+    MockMailDTO:
+      title: Mock email request
+      type: object
+      description: Mock email for request.
+      properties:
+        email:
+          type: string
+          example: ivanov@mail.com
 
     ApplicationDTO:
       title: Application

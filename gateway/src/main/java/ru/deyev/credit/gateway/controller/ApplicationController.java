@@ -22,27 +22,27 @@ public class ApplicationController implements ApplicationApi {
 
     private final DealService dealService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> applyOffer(LoanOfferDTO loanOfferDTO) {
         applicationService.applyOffer(loanOfferDTO);
         return ResponseEntity.ok().build();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<List<LoanOfferDTO>> createLoanApplication(LoanApplicationRequestDTO loanApplicationRequestDTO) {
         return ResponseEntity.ok(applicationService.createLoanApplication(loanApplicationRequestDTO));
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> denyLoanApplication(@PathVariable Long applicationId) {
         applicationService.denyLoanApplication(applicationId);
         return ResponseEntity.ok().build();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> finishRegistration(Long applicationId, FinishRegistrationRequestDTO finishRegistrationRequestDTO) {
         dealService.finishRegistration(applicationId, finishRegistrationRequestDTO);

@@ -13,24 +13,26 @@ public class DocumentController implements DocumentApi {
 
     private final DocumentService documentService;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> createDocuments(Long applicationId) {
         documentService.createDocuments(applicationId);
         return ResponseEntity.ok().build();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> signDocuments(Long applicationId) {
         documentService.signDocuments(applicationId);
         return ResponseEntity.ok().build();
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @Override
     public ResponseEntity<Void> sendSesCode(Long applicationId, Integer body) {
         documentService.sendSesCode(applicationId, body);
         return ResponseEntity.ok().build();
     }
+
+
 }
